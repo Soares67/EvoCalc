@@ -2,9 +2,9 @@
 #Limitador de caracteres na tela
 limite = 13
 
-#Numpad Functions
+# Números
 
-#Button 0
+# 0
 def bt0(entry):
     if entry.get() == "" or len(entry.get()) < limite:
          entry.insert(0+len(entry.get()), "0")
@@ -12,7 +12,7 @@ def bt0(entry):
         pass
 
 
-#Button 1
+# 1
 def bt1(entry):
     if entry.get() == "" or len(entry.get()) < limite:
         entry.insert(0+len(entry.get()), "1")
@@ -20,7 +20,7 @@ def bt1(entry):
         pass
 
 
-#Button 2
+# 2
 def bt2(entry):
     if entry.get() == "" or len(entry.get()) < limite:
         entry.insert(0+len(entry.get()), "2")
@@ -28,7 +28,7 @@ def bt2(entry):
         pass
 
 
-#Button 3
+# 3
 def bt3(entry):
     if entry.get() == "" or len(entry.get()) < limite:
         entry.insert(0+len(entry.get()), "3")
@@ -36,7 +36,7 @@ def bt3(entry):
         pass
 
 
-#Button 4
+# 4
 def bt4(entry):
     if entry.get() == "" or len(entry.get()) < limite:
         entry.insert(0+len(entry.get()), "4")
@@ -44,7 +44,7 @@ def bt4(entry):
         pass
 
 
-#Button 5
+#  5
 def bt5(entry):
     if entry.get() == "" or len(entry.get()) < limite:
         entry.insert(0+len(entry.get()), "5")
@@ -52,7 +52,7 @@ def bt5(entry):
         pass
 
 
-#Button 6
+# 6
 def bt6(entry):
     if entry.get() == "" or len(entry.get()) < limite:
         entry.insert(0+len(entry.get()), "6")
@@ -60,7 +60,7 @@ def bt6(entry):
         pass
 
 
-#Button 7
+# 7
 def bt7(entry):
     if entry.get() == "" or len(entry.get()) < limite:
         entry.insert(0+len(entry.get()), "7")
@@ -68,7 +68,7 @@ def bt7(entry):
         pass
 
 
-#Button 8
+# 8
 def bt8(entry):
     if entry.get() == "" or len(entry.get()) < limite:
         entry.insert(0+len(entry.get()), "8")
@@ -76,7 +76,7 @@ def bt8(entry):
         pass
 
 
-#Button 9
+# 9
 def bt9(entry):
     if entry.get() == "" or len(entry.get()) < limite:
         entry.insert(0+len(entry.get()), "9")
@@ -84,7 +84,7 @@ def bt9(entry):
         pass
 
 
-#Button comma
+# Vírgula
 def btcomma(entry):
     if entry.get() == "" or len(entry.get()) < limite:
         entry.insert(0+len(entry.get()), ".")
@@ -92,23 +92,25 @@ def btcomma(entry):
         pass
 
 
-#Options Functions
+# Funções das operações
 
-#Clear All (AC)
+# Apagar tudo
 def ac(entry):
     if len(entry.get()) > 0:
         entry.delete(0, "end")
     else:
         pass
 
-#Clear One (<X)
+
+# Apagar um dígito (<X)
 def clearone(entry):
     if len(entry.get()) > 0:
         entry.delete(int(len(entry.get().replace(",", "").replace(".",""))-1))
     else:
         pass
 
-#Button Sum
+
+# Soma
 def btsum(entry):
     if entry.get() == "" or len(entry.get()) < limite:
         entry.insert(0+len(entry.get()), "+")
@@ -116,7 +118,7 @@ def btsum(entry):
         pass
 
 
-#Button Mult
+# Multiplicação
 def btmult(entry):
     if entry.get() == "" or len(entry.get()) < limite:
         entry.insert(0+len(entry.get()), "*")
@@ -124,7 +126,7 @@ def btmult(entry):
         pass
 
 
-#Button Min
+# Subtração
 def btmin(entry):
     if entry.get() == "" or len(entry.get()) < limite:
         entry.insert(0+len(entry.get()), "-")
@@ -132,7 +134,7 @@ def btmin(entry):
         pass
 
 
-#Button div
+# Divisão
 def btdiv(entry):
     if entry.get() == "" or len(entry.get()) < limite:
         entry.insert(0+len(entry.get()), "/")
@@ -140,7 +142,7 @@ def btdiv(entry):
         pass
 
 
-#Button Percent
+#Porcentagem
 def btpercent(entry):
     if entry.get() == "" or len(entry.get()) < limite:
         entry.insert(0+len(entry.get()), "%")
@@ -148,13 +150,13 @@ def btpercent(entry):
         pass
 
 
-#Button Result
+# Resultado
 def btres(entry):
-    operators = ["/", "*", "+", "-", "%"]
+    operadores = ["/", "*", "+", "-", "%"]
     opt = entry.get().replace("  ", " ").strip()
-    for i in operators:
+    for i in operadores:
         if i in opt:
-            operator = i
+            operador = i
             nums = opt.split(i)
             frs, sec = nums
         
@@ -168,15 +170,15 @@ def btres(entry):
                 sec = int(sec)
             
             try:
-                if operator == "/":
+                if operador == "/":
                     res = frs / sec
-                elif operator == "*":
+                elif operador == "*":
                     res = frs * sec
-                elif operator == "+":
+                elif operador == "+":
                     res = frs + sec
-                elif operator == "-":
+                elif operador == "-":
                     res = frs - sec
-                elif operator == "%":
+                elif operador == "%":
                     res = (frs/100) * sec
                 else:
                     pass
