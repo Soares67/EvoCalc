@@ -128,7 +128,8 @@ class Calculadora:
         if self.divzero in self._entry.get() or self.erro in self._entry.get():
             self._entry.delete(0, "end")
         if len(self._entry.get()) < self._limite and len(self._entry.get()) > 0:
-            self._entry.insert(0+len(self._entry.get()), "+")
+            if not "+" in self._entry.get():
+                self._entry.insert(0+len(self._entry.get()), "+")
 
 
     # Multiplicação
@@ -136,7 +137,8 @@ class Calculadora:
         if self.divzero in self._entry.get() or self.erro in self._entry.get():
             self._entry.delete(0, "end")
         if len(self._entry.get()) < self._limite and len(self._entry.get()) > 0:
-            self._entry.insert(0+len(self._entry.get()), "*")
+            if not "*" in self._entry.get():
+                self._entry.insert(0+len(self._entry.get()), "*")
 
 
     # Subtração
@@ -144,7 +146,8 @@ class Calculadora:
         if self.divzero in self._entry.get() or self.erro in self._entry.get():
             self._entry.delete(0, "end")
         if len(self._entry.get()) < self._limite and len(self._entry.get()) > 0:
-            self._entry.insert(0+len(self._entry.get()), "-")
+            if not "-" in self._entry.get():
+                self._entry.insert(0+len(self._entry.get()), "-")
 
 
     # Divisão
@@ -152,7 +155,8 @@ class Calculadora:
         if self.divzero in self._entry.get() or self.erro in self._entry.get():
             self._entry.delete(0, "end")
         if len(self._entry.get()) < self._limite and len(self._entry.get()) > 0:
-            self._entry.insert(0+len(self._entry.get()), "/")
+            if not "/" in self._entry.get():
+                self._entry.insert(0+len(self._entry.get()), "/")
 
 
     # Porcentagem
@@ -160,7 +164,8 @@ class Calculadora:
         if self.divzero in self._entry.get() or self.erro in self._entry.get():
             self._entry.delete(0, "end")
         if len(self._entry.get()) < self._limite and len(self._entry.get()) > 0:
-            self._entry.insert(0+len(self._entry.get()), "%")
+            if not "%" in self._entry.get():
+                self._entry.insert(0+len(self._entry.get()), "%")
 
 
     # Resultado
@@ -177,4 +182,4 @@ class Calculadora:
                 self._entry.insert(0, self.divzero)
             except Exception as e:
                 self._entry.delete(0, "end")
-                self._entry.insert(0, self.self.erro)
+                self._entry.insert(0, self.erro)
